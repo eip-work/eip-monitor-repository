@@ -5,6 +5,16 @@
     "version": "0.1.0",
     "lastUpdate": "2019-07-02",
     "maintainer": "shaohq@foxmail.com",
+    "isGlobal": true,
+    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-pinpoint/master/install/addon.json"
+  },
+  {
+    "name": "Pinpoint 监控套件",
+    "id": "eip-monitor-pinpoint",
+    "version": "0.1.0",
+    "lastUpdate": "2019-07-02",
+    "maintainer": "shaohq@foxmail.com",
+    "isGlobal": false,
     "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-pinpoint/master/install/addon.json"
   }
 ]
