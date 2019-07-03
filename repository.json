@@ -1,12 +1,12 @@
 [
   {
-    "name": "Pinpoint 监控套件",
-    "id": "eip-monitor-pinpoint",
+    "name": "资源层监控套件",
+    "id": "eip-monitor-system",
     "version": "0.1.0",
-    "lastUpdate": "2019-07-02",
+    "lastUpdate": "2019-07-03",
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": true,
-    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-pinpoint/master/install/addon.json"
+    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-system/master/install/addon.json"
   },
   {
     "name": "Pinpoint 监控套件",
