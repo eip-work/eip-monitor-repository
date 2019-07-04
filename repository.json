@@ -16,5 +16,23 @@
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": false,
     "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-pinpoint/master/install/addon.json"
+  },
+  {
+    "name": "Prometheus for mysql/nginx/jvm",
+    "id": "eip-monitor-prometheus",
+    "version": "0.1.0",
+    "lastUpdate": "2019-07-04",
+    "maintainer": "shaohq@foxmail.com",
+    "isGlobal": false,
+    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-prometheus/master/install/addon.json"
+  },
+  {
+    "name": "Sentinel",
+    "id": "eip-monitor-sentinel",
+    "version": "0.1.0",
+    "lastUpdate": "2019-07-04",
+    "maintainer": "shaohq@foxmail.com",
+    "isGlobal": false,
+    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-sentinel/master/install/addon.json"
   }
 ]
