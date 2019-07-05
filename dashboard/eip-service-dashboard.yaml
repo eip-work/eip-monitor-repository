@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eip-service-dashboard
+  namespace: kube-system
+  labels:
+    k8s.eip.work/layer: monitor
+    k8s.eip.work/name: eip-service-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s.eip.work/layer: monitor
+      k8s.eip.work/name: eip-service-dashboard
+  template:
+    metadata:
+      labels:
+        k8s.eip.work/layer: monitor
+        k8s.eip.work/name: eip-service-dashboard
+    spec:
+      containers:
+      - name: eip-service-dashboard
+        image: eipwork/eip-service-dashboard:v1.0.0-beta.4
+        imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eip-service-dashboard
+  namespace: kube-system
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    k8s.eip.work/layer: monitor
+    k8s.eip.work/name: eip-service-dashboard
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eip-service-apiserver
+  namespace: kube-system
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  ports:
+  - port: 443
+    targetPort: 6443
+  selector:
+    component: kube-apiserver
+    tier: control-plane
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: eip-admin-user
+  namespace: kube-system
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: eip-admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: eip-admin-user
+  namespace: kube-system
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: eip-service-dashboard
+  namespace: kube-system
+  annotations:
+    nginx.org/websocket-services: "eip-service-dashboard"
+    nginx.com/sticky-cookie-services: "serviceName=eip-service-dashboard srv_id expires=1h path=/"
+spec:
+  rules:
+  - host: dashboard.apple.liangzixin.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: eip-service-dashboard
+          servicePort: http
