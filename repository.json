@@ -6,7 +6,7 @@
     "lastUpdate": "2019-07-03",
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": true,
-    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-system/master/install/addon.json"
+    "url": "https://raw.githubusercontent.com/eip-work/eip-monitor-system/master/install/addon.json"
   },
   {
     "name": "Pinpoint 监控套件",
@@ -15,7 +15,7 @@
     "lastUpdate": "2019-07-02",
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": false,
-    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-pinpoint/master/install/addon.json"
+    "url": "https://raw.githubusercontent.com/eip-work/eip-monitor-pinpoint/master/install/addon.json"
   },
   {
     "name": "Prometheus for mysql/nginx/jvm",
@@ -24,7 +24,7 @@
     "lastUpdate": "2019-07-04",
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": false,
-    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-prometheus/master/install/addon.json"
+    "url": "https://raw.githubusercontent.com/eip-work/eip-monitor-prometheus/master/install/addon.json"
   },
   {
     "name": "Sentinel",
@@ -33,6 +33,6 @@
     "lastUpdate": "2019-07-04",
     "maintainer": "shaohq@foxmail.com",
     "isGlobal": false,
-    "url": "https://raw.githubusercontent.com/shaohq/eip-monitor-sentinel/master/install/addon.json"
+    "url": "https://raw.githubusercontent.com/eip-work/eip-monitor-sentinel/master/install/addon.json"
   }
 ]
