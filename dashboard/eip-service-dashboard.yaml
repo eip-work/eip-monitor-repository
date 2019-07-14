@@ -87,7 +87,7 @@ metadata:
     nginx.com/sticky-cookie-services: "serviceName=eip-service-dashboard srv_id expires=1h path=/"
 spec:
   rules:
-  - host: dashboard.apple.liangzixin.xyz
+  - host: dashboard.apple.eip.work
     http:
       paths:
       - path: /
