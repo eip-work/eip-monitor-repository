@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: monitor-eureka
+
+server:
+  port: 9000
+management:
+  endpoints:
+    web.exposure.include: metrics
+  server:
+    port: 9100
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: ${MONITOR_EUREKA_DEFAULT_ZONE}
+  server:
+    eviction-interval-timer-in-ms: 60000
+    enable-self-preservation: true

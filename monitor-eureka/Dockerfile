@@ -1,0 +1,16 @@
+FROM eipwork/jdk:1.0.0
+
+ARG JAR_FILE_NAME=monitor-eureka-0.0.1-SNAPSHOT.jar
+ARG PORT=9000
+ARG MANAGEMENT_PORT=9100
+
+COPY ./target/$JAR_FILE_NAME /eip/$JAR_FILE_NAME
+
+EXPOSE $PORT
+EXPOSE $MANAGEMENT_PORT
+
+ENV MONITOR_EUREKA_DEFAULT_ZONE=http://monitor-eureka:9000/eureka/
+
+WORKDIR /eip
+
+ENTRYPOINT ["java", "-jar", "/eip/monitor-eureka-0.0.1-SNAPSHOT.jar"]
