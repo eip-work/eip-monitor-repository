@@ -121,6 +121,9 @@ kind: DaemonSet
 metadata:
   name: nginx-ingress
   namespace: nginx-ingress
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9113"
 spec:
   selector:
     matchLabels:
@@ -129,9 +132,6 @@ spec:
     metadata:
       labels:
         app: nginx-ingress
-    annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "9113"
     spec:
       serviceAccountName: nginx-ingress
       containers:
