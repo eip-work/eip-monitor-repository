@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eip-service-dashboard
+  name: kuboard
   namespace: kube-system
   labels:
     k8s.eip.work/layer: monitor
-    k8s.eip.work/name: eip-service-dashboard
+    k8s.eip.work/name: kuboard
 spec:
   replicas: 1
   selector:
     matchLabels:
       k8s.eip.work/layer: monitor
-      k8s.eip.work/name: eip-service-dashboard
+      k8s.eip.work/name: kuboard
   template:
     metadata:
       labels:
         k8s.eip.work/layer: monitor
-        k8s.eip.work/name: eip-service-dashboard
+        k8s.eip.work/name: kuboard
     spec:
       containers:
-      - name: eip-service-dashboard
-        image: eipwork/eip-service-dashboard:v1.0.0-beta.6
+      - name: kuboard
+        image: eipwork/kuboard:v1.0.0-beta.6
         imagePullPolicy: Always
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: eip-service-dashboard
+  name: kuboard
   namespace: kube-system
 spec:
   type: ClusterIP
@@ -37,7 +37,7 @@ spec:
     targetPort: 80
   selector:
     k8s.eip.work/layer: monitor
-    k8s.eip.work/name: eip-service-dashboard
+    k8s.eip.work/name: kuboard
 
 ---
 apiVersion: v1
@@ -80,17 +80,17 @@ subjects:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: eip-service-dashboard
+  name: kuboard
   namespace: kube-system
   annotations:
-    nginx.org/websocket-services: "eip-service-dashboard"
-    nginx.com/sticky-cookie-services: "serviceName=eip-service-dashboard srv_id expires=1h path=/"
+    nginx.org/websocket-services: "kuboard"
+    nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
 spec:
   rules:
-  - host: dashboard.apple.eip.work
+  - host: kuboard.demo.eip.work
     http:
       paths:
       - path: /
         backend:
-          serviceName: eip-service-dashboard
+          serviceName: kuboard
           servicePort: http
