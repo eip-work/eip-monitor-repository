@@ -30,11 +30,12 @@ metadata:
   name: kuboard
   namespace: kube-system
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - name: http
     port: 80
     targetPort: 80
+    nodePort: 32567
   selector:
     k8s.eip.work/layer: monitor
     k8s.eip.work/name: kuboard
