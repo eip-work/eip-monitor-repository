@@ -42,22 +42,6 @@ spec:
 
 ---
 apiVersion: v1
-kind: Service
-metadata:
-  name: eip-service-apiserver
-  namespace: kube-system
-spec:
-  type: ClusterIP
-  sessionAffinity: ClientIP
-  ports:
-  - port: 443
-    targetPort: 6443
-  selector:
-    component: kube-apiserver
-    tier: control-plane
-
----
-apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kuboard-user
