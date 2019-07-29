@@ -126,7 +126,7 @@ metadata:
     nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
 spec:
   rules:
-  - host: kuboard.demo.eip.work
+  - host: kuboard.cn
     http:
       paths:
       - path: /
