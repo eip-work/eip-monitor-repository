@@ -3,6 +3,11 @@ kind: Deployment
 metadata:
   name: kuboard
   namespace: kube-system
+  annotations:
+    k8s.eip.work/displayName: kuboard
+    k8s.eip.work/ingress: "true"
+    k8s.eip.work/service: NodePort
+    k8s.eip.work/workload: kuboard
   labels:
     k8s.eip.work/layer: monitor
     k8s.eip.work/name: kuboard
